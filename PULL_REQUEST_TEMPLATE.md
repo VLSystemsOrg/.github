@@ -19,7 +19,7 @@
 <!-- Repo/runtime-dependent imports, versions, generated artifacts, environment wiring, secrets, current conventions, existing local components, or other details that require live reconciliation. -->
 
 ### Continuous fitness re-check — D-0140
-<!-- After live reconciliation, evaluate only the D-0140 dimensions affected by this change. Do not rerun settled dimensions without a new trigger.
+<!-- For material implementation changes, after live reconciliation evaluate only the D-0140 dimensions affected by this change. Small low-risk changes should remain proportionate; do not rerun settled dimensions without a new trigger.
 
 Initial trigger IDs:
 - FIT-REUSE-01 — new material custom surface, duplication, hidden dependency, or newly visible residual. Reopen D-0139/D-0109 reuse comparison; "no donor earned" remains valid.
@@ -52,7 +52,7 @@ Record only triggered dimensions and the smallest evidence/action needed. A trig
 ## Checklist
 - [ ] Live repository/runtime state was re-read immediately before mutation.
 - [ ] Chat scaffold was reconciled against current code/configuration/dependencies/conventions and existing local components where applicable.
-- [ ] Prebuild reuse comparison is recorded in the owning Build Admission evidence or controlling pointer.
+- [ ] When an implementation/acquisition decision is in scope, the prebuild reuse comparison is recorded in the owning Build Admission evidence or controlling pointer.
 - [ ] Applicable D-0140 trigger checks were evaluated from the current change/runtime evidence; only affected dimensions were reopened.
 - [ ] Triggered rechecks were routed to their existing owning authority; no fitness result self-approved a material decision.
 - [ ] Any material Acquisition Path/current-state change was reconciled in its owning evidence before reliance.
