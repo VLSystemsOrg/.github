@@ -22,7 +22,7 @@
 <!-- For material implementation changes, after live reconciliation evaluate only the D-0140 dimensions affected by this change. Small low-risk changes should remain proportionate; do not rerun settled dimensions without a new trigger.
 
 Initial trigger IDs:
-- FIT-REUSE-01 — new material custom surface, duplication, hidden dependency, or newly visible residual. Reopen D-0139/D-0109 reuse comparison; "no donor earned" remains valid.
+- FIT-REUSE-01 — new material custom surface, duplication, hidden dependency, newly visible residual, or materially better reusable implementation. Reopen D-0139/D-0109 reuse comparison for the affected slice; "no donor earned" remains valid, and unrelated accepted work remains unaffected unless its owning dependency/gate requires otherwise.
 - FIT-SEC-01 — dependency/lockfile, credentials, auth, permissions, network exposure, endpoint, privilege, or security-sensitive configuration change. Route the affected slice to existing security authority.
 - FIT-CPLX-01 / FIT-CPLX-02 — new persistent operational component, or material abstraction/generalization beyond the current consumer. Require earned-existence/simplification review.
 - FIT-AUTH-01 — source identity, ownership, canonical pointer, or duplicate-authority change/conflict. Reconcile live authority before reliance.
