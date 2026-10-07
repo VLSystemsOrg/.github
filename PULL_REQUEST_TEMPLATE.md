@@ -13,29 +13,29 @@
 **Base SHA:** <!-- Commit SHA Chat/executor prepared against -->
 
 ### Prepared in Chat
-<!-- Stable research, design, code, tests, schemas, migration/rollback steps, reuse/donor comparison, or other scaffold prepared upstream. Use N/A only when DIRECT CODING EXECUTION is justified. -->
+<!-- Stable research, design, code, tests, schemas, migration/rollback steps, applicable D-0140 fitness baseline, reuse comparison, or other scaffold prepared upstream. Use N/A only when DIRECT CODING EXECUTION is justified. -->
 
 ### Must resolve live
 <!-- Repo/runtime-dependent imports, versions, generated artifacts, environment wiring, secrets, current conventions, existing local components, or other details that require live reconciliation. -->
 
-### Continuous reuse re-check — D-0139
-<!-- Reuse-first continues during implementation; it is not frozen at prebuild.
+### Continuous fitness re-check — D-0140
+<!-- After live reconciliation, evaluate only the D-0140 dimensions affected by this change. Do not rerun settled dimensions without a new trigger.
 
-1. State the prebuild reuse basis or point to the Build Admission receipt: existing VLS code, native/framework capability, package/tool/platform reuse, and any bounded donor candidates checked.
-2. After re-reading the live repo/runtime, explicitly evaluate whether implementation exposed any reopen trigger:
-   - duplicated commodity logic;
-   - hidden dependency or existing local component;
-   - unexpectedly large custom surface;
-   - repeated adapter/auth/pagination/retry plumbing;
-   - a new machine-observable residual; or
-   - a materially better maintained reusable implementation.
-3. If a trigger fired, record the bounded re-comparison and whether the owning Acquisition Path changed. Reconcile Build Admission before relying on newly selected external code.
-4. If no trigger fired or no donor/reuse candidate earned selection, say so. "No donor earned" is a valid result.
+Initial trigger IDs:
+- FIT-REUSE-01 — new material custom surface, duplication, hidden dependency, or newly visible residual. Reopen D-0139/D-0109 reuse comparison; "no donor earned" remains valid.
+- FIT-SEC-01 — dependency/lockfile, credentials, auth, permissions, network exposure, endpoint, privilege, or security-sensitive configuration change. Route the affected slice to existing security authority.
+- FIT-CPLX-01 / FIT-CPLX-02 — new persistent operational component, or material abstraction/generalization beyond the current consumer. Require earned-existence/simplification review.
+- FIT-AUTH-01 — source identity, ownership, canonical pointer, or duplicate-authority change/conflict. Reconcile live authority before reliance.
+- FIT-REL-01 — background/async execution, persistent state, remote/irreversible mutation, retry behavior, or external dependency change. Verify bounded failure/recovery and consumer outcome.
+- FIT-COST-01 — material increase in paid/premium use, recurring cadence, persistent compute/storage/network/API use, or repeated toil. Re-evaluate cheapest adequate lifecycle path.
+- FIT-OBS-01 — material async/background/remote action lacks sufficient receipt/log/status/readback/consumer proof. Add the smallest sufficient evidence path or leave INCONCLUSIVE.
 
-Do not pause every coding step for broad external research, and do not manufacture a donor merely to satisfy this section.
+Record only triggered dimensions and the smallest evidence/action needed. A trigger invokes its existing authority; this PR section does not approve architecture, security posture, Build Admission, exceptions, or deployment. Use BLOCKED only when an existing governing authority makes the condition blocking.
 -->
 
-**Build-time reuse disposition:** <!-- NO REOPEN TRIGGER | RECHECKED / PATH UNCHANGED | RECHECKED / PATH CHANGED — see owning Build Admission evidence -->
+**Fitness result:** <!-- NO_TRIGGER | RECHECK | INCONCLUSIVE | BLOCKED BY EXISTING AUTHORITY -->
+**Triggered IDs:** <!-- NONE | FIT-... -->
+**Recheck evidence / owning authority:** <!-- N/A when NO_TRIGGER; otherwise concise pointer/result. For FIT-REUSE-01, reconcile any material Acquisition Path change before relying on new external code. -->
 
 ### Direct-execution reason
 <!-- Required only for DIRECT CODING EXECUTION. Explain why live repo/runtime state materially dominates or Chat scaffolding would add rework. -->
@@ -53,8 +53,10 @@ Do not pause every coding step for broad external research, and do not manufactu
 - [ ] Live repository/runtime state was re-read immediately before mutation.
 - [ ] Chat scaffold was reconciled against current code/configuration/dependencies/conventions and existing local components where applicable.
 - [ ] Prebuild reuse comparison is recorded in the owning Build Admission evidence or controlling pointer.
-- [ ] D-0139 build-time reuse triggers were evaluated after live reconciliation.
-- [ ] If a reuse trigger fired, the bounded alternatives were re-compared and any material Acquisition Path change was reconciled before relying on new external code.
+- [ ] Applicable D-0140 trigger checks were evaluated from the current change/runtime evidence; only affected dimensions were reopened.
+- [ ] Triggered rechecks were routed to their existing owning authority; no fitness result self-approved a material decision.
+- [ ] Any material Acquisition Path/current-state change was reconciled in its owning evidence before reliance.
+- [ ] No new policy/scanner/workflow/control plane was introduced merely to satisfy this template.
 - [ ] No secrets were placed in scaffold or PR content.
 - [ ] Relevant acceptance criteria and downstream consumers were checked.
 - [ ] Rollback/disable/recovery path is understood.
